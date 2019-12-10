@@ -30,6 +30,12 @@ import Special from './Assets/img/Special.jpg';
 import Hearth from './Assets/img/HS.jpg';
 import Music from './Assets/img/Music.jpg';
 import GtaV from './Assets/img/GtaV.jpg';
+import BenCN from './Assets/SideReelIcons/benCN.jpg';
+import DanCN from './Assets/SideReelIcons/DanCN.jpg';
+import Memes from './Assets/img/Marshh.jpg';
+import CodeNation from './Assets/img/CodeNation.jpg';
+import BabyYoda from './Assets/img/babyYoda.jpg';
+import MomoQuestion from './Assets/img/questionsWithMo.jpg';
 
 class App extends Component {
   state = {
@@ -58,6 +64,12 @@ class App extends Component {
       {id: 21, image: Music, text: "Music & Performing Arts", viewers: "12,790 viewers"},
       {id: 22, image: GtaV, text: "Grand Theft Auto: V", viewers: "7,460 viewers"},
       {id: 23, image: league, text: "League of Legends", viewers: "-1 viewers"},
+      {id: 24, image: DanCN, text: "0-2-Hero Coding with Dan", viewers: "25 viewers"},
+      {id: 25, image: BenCN, text: "Surviving with Ben", viewers: "25 viewers"},
+      {id: 26, image: CodeNation, text: "We are CodeNation", viewers: "10 viewers"},
+      {id: 27, image: Memes, text: "living the meme", viewers: "1 viewers"},
+      {id: 28, image: BabyYoda, text: "Alex Uncovered", viewers: "0.5 viewers"},
+      {id: 29, image: MomoQuestion, text: "Questions with Mo", viewers: "0.000 viewers"},
 
     ]
   }
@@ -85,7 +97,7 @@ export default App;
 
 const AppDiv = styled.div`
   display: grid;
-  grid-template-columns: 5% 1fr;
+  grid-template-columns: 50px 1fr;
   grid-template-rows: 60px;
   grid-template-areas: "Nav Nav"
   "side body";
