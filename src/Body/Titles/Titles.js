@@ -21,7 +21,7 @@ const ContainerDiv = styled.div`
 const BrowseSub = styled.h1`
     color:white;
     font-size: 4em;
-    margin-left: 2rem;
+    margin: 25px 0 25px 0;
 `;
 
 const SubSubDiv = styled.div`
@@ -31,7 +31,6 @@ const SubSubDiv = styled.div`
 
 const SubSubHeadingOne = styled.a`
     color: #a970ff;
-    margin-left: 2em;
     text-decoration: none;
     font-weight: bold;
     font-size: 20px;

@@ -1,15 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import TagComp from '../Tags/Tags';
+
+
 
 const Card = (props) => {
     return (
         <TwitchCards>
-            <Image src={props.image}/>
-            <Game>{props.text}</Game>
-            <ViewerCount>{props.viewers}</ViewerCount>
+            <GameLink href={props.url}>
+                <Image src={props.image}/>
+                <Game>{props.text}</Game>
+                <ViewerCount>{props.viewers}</ViewerCount>
+                <TagComp tags={props.tags} />
+            </GameLink>
         </TwitchCards>
-    )
-}
+                )
+            }
+            // <buttons>({props.tags})</buttons>
 
 export default Card;
 
@@ -20,7 +27,7 @@ height: 300px;
 width: 220px;
 display: flex;
 flex-direction: column;
-margin: 15px 0 15px 0;
+margin: 5px 0 15px 0;
 `;
 
 const Image = styled.img`
@@ -37,7 +44,6 @@ const Game = styled.h6`
     font-size: 15px;
     text-shadow: 0.7px 0.7px #E3E2E1;
     margin: 2px;
-
     overflow: hidden;
 white-space: nowrap;
 `;
@@ -48,4 +54,8 @@ const ViewerCount = styled.h6`
     margin: 1px;
     font-weight: 300;
     text-shadow: 0.7px 0.7px grey;
+`;
+
+const GameLink = styled.a`
+    text-decoration: none;
 `;
