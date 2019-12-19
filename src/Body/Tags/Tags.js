@@ -28,4 +28,7 @@ const Tag = styled.button`
     font-weight: bold;
     font-size: 12px;
     text-shadow: 0.5px 0.5px #A6A5A4;
+    @media (max-width: 480px) {
+        margin: 10px 15px 5px 10px; 
+    }
 `

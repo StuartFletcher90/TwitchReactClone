@@ -62,20 +62,38 @@ class App extends Component {
       {id: 22, image: GtaV, text: "Grand Theft Auto: V", viewers: "7,460 viewers", url: "https://www.twitch.tv/directory/game/Grand Theft Auto V", tags: ["Driving/Racing Game"]},
       {id: 23, image: league, text: "League of Legends", viewers: "-1 viewers", url: "https://www.twitch.tv/directory/game/League of Legends", tags: ["Trash", "MOBA"]},
 
-    ]
+    ],
+    modalDisplay: false,
+    screenAdapt: true,
   }
+
+    componentDidMount() {
+      if ( window.innerWidth <= 480) {
+        this.setState({screenAdapt: false})
+      } else {
+        if (window.innerWidth >= 481) {
+          this.setState({screenAdapt: true})
+        }
+      }
+    }
+
+    setWrapperRef = (node) => {
+      this.wrapperRef = node;
+    }
+
+    
   render () {
     return (
-      <AppDiv>
-        <NavBar/>
-        <SideBar/>
+      <AppDiv ref={this.setWrapperRef}>
+        <NavBar myHideState={this.state.screenAdapt}/>
+        {this.state.screenAdapt && <SideBar/>} 
         <PlaceHolderDiv>
-        <Headings/>
-        <MiniHeadings/>
+        <Headings myHideState={this.state.screenAdapt}/>
+        {this.state.screenAdapt && <MiniHeadings clicked={this.showFilterModal} myState={this.state.modalDisplay}/>}
         <CardGrid>
         {this.state.cards.map((card)=> {
           return(
-            <Cards image={card.image} text={card.text} viewers={card.viewers} url={card.url} tags={card.tags}/>
+            <Cards image={card.image} key={card.id} text={card.text} viewers={card.viewers} url={card.url} tags={card.tags}/>
           )
         })}
         </CardGrid>
@@ -89,6 +107,7 @@ export default App;
 
 const AppDiv = styled.div`
   display: grid;
+ 
   grid-template-columns: 50px 1fr;
   grid-template-rows: 60px;
   grid-template-areas: "Nav Nav"
@@ -97,6 +116,11 @@ const AppDiv = styled.div`
   height: 100vh;
   width: 100vw;
   background-color: #0e0e10;
+  cursor: default;
+  @media (max-width: 480px) {
+    grid-template-columns: 15px 1fr;
+    gap: 5px 0;
+  }
 `;
 
 const CardGrid = styled.div`
@@ -105,7 +129,9 @@ const CardGrid = styled.div`
   flex-direction: row;
   text-overflow: ellipsis;
   flex-wrap: wrap;
-  margin-top: 5px;
+  @media (max-width: 480px) {
+    gap: 0;
+    }
 `;
 
 const PlaceHolderDiv = styled.div`

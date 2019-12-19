@@ -1,33 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 
-class MiniHeadings extends Component {
-    state = {
-        modalDisplay: false
-    };
 
-    showFilterModal = () => {
-        this.setState({modalDisplay: true})
-        console.log("hello")
-    };
-
-    render () {
+const MiniHeadings = (props) => {
     return (
         <MiniContainer>
             <SubHeadings>Filter by</SubHeadings>
-            <FilterBtn onClick={this.showFilterModal}>Add Filter +</FilterBtn>
-            {this.state.modalDisplay ? <FilterModal/> : null};
+            <FilterBtn onClick={props.clicked}>Add Filter +</FilterBtn>
+            {props.myState &&
+                <FilterModal>
+                <ul>Cheese</ul>
+                <ul>milk</ul>
+                <ul>eggs</ul>
+            </FilterModal>
+        }
         </MiniContainer>
     )
     }
-}
+
 
 export default MiniHeadings;
 
 const MiniContainer = styled.div`
    display: flex;
    grid-area: body;
+   @media (max-width: 425px) {
+        margin: 0 0 0 25px;
+    }
+    @media (max-width: 320px) {
+        margin: 0 0 0 15px;
+    }
 `;
 
 const SubHeadings = styled.h6`
@@ -51,7 +54,21 @@ const FilterBtn = styled.button`
 const FilterModal = styled.div`
     height: 200px;
     width: 150px;
+    position: absolute;
     background-color: black;
     grid-area: body;
-
+    color: white;
 `;
+
+// !this.state.modalDisplay
+
+// <MiniContainer>
+// <SubHeadings>Filter by</SubHeadings>
+// <FilterBtn onClick={this.showFilterModal}>Add Filter +</FilterBtn>
+//      {this.state.modalDisplay ? 
+// <FilterModal>
+//     <ul>Cheese</ul>
+//     <ul>milk</ul>
+//     <ul>eggs</ul>
+// </FilterModal> : null};
+// </MiniContainer>

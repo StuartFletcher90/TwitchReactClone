@@ -11,6 +11,10 @@ const TwitchIcon = () => {
 export default TwitchIcon;
 
 const TwitchBtn = styled.input`
-    height: 4em;
+    height: 40px;
     margin: 0 10px 0 10px;
+    @media (max-width: 425px) {
+        height: 30px;
+        
+    }
 `;
