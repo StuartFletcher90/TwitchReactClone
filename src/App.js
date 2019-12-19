@@ -7,6 +7,8 @@ import Headings from './Body/Titles/Titles';
 import Cards from './Body/Cards/Card';
 import MiniHeadings from './Body/miniHeadings/miniHeadings';
 
+// review
+
 
 import dota2 from './Assets/img/TotesMeDotes.jpg';
 import CoD from './Assets/img/CoD.jpg';
