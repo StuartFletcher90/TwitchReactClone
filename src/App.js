@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+
+// are you still using app.css for anything? If not remove it and delete the file. Also applies to index.css
 import './App.css';
 import NavBar from './Nav/Nav';
 import SideBar from './SideBar/Sidebar';
@@ -7,7 +9,7 @@ import Headings from './Body/Titles/Titles';
 import Cards from './Body/Cards/Card';
 import MiniHeadings from './Body/miniHeadings/miniHeadings';
 
-// review
+
 
 
 import dota2 from './Assets/img/TotesMeDotes.jpg';
@@ -37,6 +39,7 @@ import GtaV from './Assets/img/GtaV.jpg';
 
 
 class App extends Component {
+  //if not using ids remove them.
   state = {
     cards: [
       {id: 0, image: dota2, text: "Dota 2", viewers: "326,314 viewers", url: "https://www.twitch.tv/directory/game/Dota%202", tags: ["MOBA"]},
@@ -78,12 +81,13 @@ class App extends Component {
         }
       }
     }
-
+    
+//remove ref
     setWrapperRef = (node) => {
       this.wrapperRef = node;
     }
 
-    
+//remove references to the ref below
   render () {
     return (
       <AppDiv ref={this.setWrapperRef}>
@@ -109,7 +113,6 @@ export default App;
 
 const AppDiv = styled.div`
   display: grid;
- 
   grid-template-columns: 50px 1fr;
   grid-template-rows: 60px;
   grid-template-areas: "Nav Nav"
